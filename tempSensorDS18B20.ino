@@ -14,27 +14,27 @@ The circuit for LCD:
 * LCD D5 pin to digital pin 4
 * LCD D6 pin to digital pin 3
 * LCD D7 pin to digital pin 2
-* 47K resistor:
+* 47K ohm resistor:
 * ends to +5V and ground
 * wiper to LCD VO pin (pin 3)
 
 The circuit for 18B20 temp sensor
-* sensor GND to 0V
-* sensor Vdd to +5V
-* sensor DQ to digital pin 7 
+* sensor GND (black wire) to GDN
+* sensor Vdd (red wire) to 4.7k ohm resistor to  +5V
+* sensor Data (white or yellow wire) to digital pin 7 
    ________
    | 1 2 3 | (bottom view)
     \_____/
 
     _________
-    | 18B20 |
+    | 18B20 | (side view - flad side)
     | 1 2 3 |
     |       |
     |_______|
      |  |  |
-     |  |  |
-     |  |  |
-    GND DQ Vdd
+    /   |   \
+   |    |    |
+ GND   Data  Vdd
     
 * Dallas Temperature library for Arduino
 * http://www.milesburton.com/?title=Dallas_Temperature_Control_Library
@@ -99,7 +99,5 @@ void loop(){
   lcd.setCursor(0,1);          // Moves the cursor of the display to the next line
   lcd.print(temperature);
   lcd.print(" C");  
-
- 
 }
 
